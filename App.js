@@ -54,7 +54,7 @@ window.addEventListener('scroll', function() {
     // Check if the top of the horse section is at or above the top of the viewport
     if (horseRect.top <= 0) {
         // Trigger zoom-out effect once the image reaches the top
-        horseImage.style.transform = 'scale(0.8)'; 
+        horseImage.style.transform = 'scale(0.7)'; 
         
         // Fade-up and reveal the text
         horseText.style.opacity = '1';
