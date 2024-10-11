@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <link rel="stylesheet" href="./App.css">
+    <title>Scroll-animation</title>
+</head>
+
+<body>
+    <div id="set-height"></div>
+    <p id="time"></p>
+
+    <!-- First Video -->
+    <video class="vedio_bg" id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
+        <source type="video/mp4" src="./asset/carVedio.mp4">
+    </video>
+
+    <!-- Second Video -->
+    <video class="vedio_bg" id="v1" tabindex="0" autobuffer="autobuffer" preload="preload">
+        <source type="video/mp4" src="./asset/carVedio2.mp4">
+    </video>
+
+    
+    <!-- Horse Image for Zoom-out Effect -->
+    <div class="full_horse" id="horseSection">
+        <img src="./asset/mobile_horse.png" alt="Horse Image" id="horseImage">
+    </div>
+
+    <script src="./App.js"></script>
+</body>
+</html>
