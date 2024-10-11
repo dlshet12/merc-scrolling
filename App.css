@@ -31,3 +31,16 @@ p {
     transform: scale(1);
     transition: transform 0.5s ease-out;
 }
+
+/* Center the text in the middle of the horse section */
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -40%);
+    font-size: 48px;
+    font-weight: 900;
+    color: white;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth fade and movement */
+}

@@ -45,6 +45,8 @@ window.requestAnimationFrame(scrollPlay);
 window.addEventListener('scroll', function() {
     const horseSection = document.getElementById('horseSection');
     const horseImage = document.getElementById('horseImage');
+    const horseText = document.getElementById('horseText'); // Text to animate
+
 
     // Get the bounding box of the horse section
     const horseRect = horseSection.getBoundingClientRect();
@@ -52,9 +54,17 @@ window.addEventListener('scroll', function() {
     // Check if the top of the horse section is at or above the top of the viewport
     if (horseRect.top <= 0) {
         // Trigger zoom-out effect once the image reaches the top
-        horseImage.style.transform = 'scale(0.9)'; // Adjust scale as needed
+        horseImage.style.transform = 'scale(0.9)'; 
+        
+        // Fade-up and reveal the text
+        horseText.style.opacity = '1';
+        horseText.style.transform = 'translate(-50%, -30%)'; // Move the text slightly up
     } else {
         // Reset scale if it's not at the top yet
         horseImage.style.transform = 'scale(1.3)';
+        horseText.style.opacity = '0';
+        horseText.style.transform = 'translate(-50%, -50%)'; // Reset position
     }
 });
+
+
