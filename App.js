@@ -11,30 +11,41 @@ vid0.addEventListener('loadedmetadata', function() {
     setHeight.style.height = Math.floor(vid0.duration + vid1.duration) * playbackConst + "px";
 });
 
+
+// Function to interpolate values for smooth transitions
+function lerp(start, end, amount) {
+  return start + (end - start) * amount;
+}
+
+let lastScrollPosition = 0;
+let currentScrollPosition = 0;
+
+
+
 function scrollPlay() {
-    var scrollPosition = window.pageYOffset;
+  currentScrollPosition += (window.pageYOffset - currentScrollPosition) * 0.1; // Smoother scroll interpolation
 
-    // Video 1 playback
-    if (scrollPosition < vid0.duration * playbackConst) {
-        vid0.currentTime = scrollPosition / playbackConst;
-        vid0.style.opacity = 1;  // Fully show video 1
-        vid1.style.opacity = 0;   // Hide video 2
-    }
+  // Video 1 playback
+  if (currentScrollPosition < vid0.duration * playbackConst) {
+      vid0.currentTime = currentScrollPosition / playbackConst;
+      vid0.style.opacity = 1;
+      vid1.style.opacity = 0;
+  }
 
-    // Video 2 playback
-    if (scrollPosition >= vid0.duration * playbackConst) {
-        vid1.currentTime = (scrollPosition - vid0.duration * playbackConst) / playbackConst;
-        vid0.style.opacity = 1;  // Keep video 1 visible
-        vid1.style.opacity = 1;   // Show video 2
-    }
+  // Video 2 playback
+  if (currentScrollPosition >= vid0.duration * playbackConst) {
+      vid1.currentTime = (currentScrollPosition - vid0.duration * playbackConst) / playbackConst;
+      vid0.style.opacity = 1;
+      vid1.style.opacity = 1;
+  }
 
-    // Adjust the opacity of the first video to create a parallax-like effect
-    if (scrollPosition >= vid0.duration * playbackConst - 500) {
-        let fadeAmount = (vid0.duration * playbackConst - scrollPosition) / 500; // Fade over 500 pixels
-        vid0.style.opacity = fadeAmount < 0 ? 0 : fadeAmount; // Fade out as scrolling continues
-    }
+  // Smooth fade-out effect for Video 1
+  if (currentScrollPosition >= vid0.duration * playbackConst - 500) {
+      let fadeAmount = (vid0.duration * playbackConst - currentScrollPosition) / 500;
+      vid0.style.opacity = fadeAmount < 0 ? 0 : fadeAmount; // Fade out smoothly
+  }
 
-    window.requestAnimationFrame(scrollPlay);
+  window.requestAnimationFrame(scrollPlay);
 }
 
 window.requestAnimationFrame(scrollPlay);
