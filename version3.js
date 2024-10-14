@@ -132,7 +132,10 @@ function scrollPlay() {
         vid0.style.opacity = 0;
         vid1.style.opacity = 1;
     }
-
+    if (currentScrollPosition >= (vid0.duration + vid1.duration) * playbackConst) {
+        vid1.style.opacity = 1; // Hide the second video
+        horseSection.style.opacity = 1; // Show the horse section
+    }
 
     window.requestAnimationFrame(scrollPlay);
 }
