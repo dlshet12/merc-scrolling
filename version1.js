@@ -29,3 +29,4 @@ window.requestAnimationFrame(scrollPlay);
 document.getElementById('navigateBtn').addEventListener('click', function() {
   window.location.href = './version2.html'; // Change to your desired HTML file
 });
+
