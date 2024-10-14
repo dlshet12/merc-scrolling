@@ -11,10 +11,16 @@ vid.addEventListener('loadedmetadata', function() {
   setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
 });
 
-// Use requestAnimationFrame for smooth playback
-function scrollPlay(){  
-  var frameNumber  = window.pageYOffset/playbackConst;
-  vid.currentTime  = frameNumber;
+function scrollPlay() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollFraction = scrollTop / maxScroll;
+  const frameNumber = scrollFraction * vid.duration;
+  
+  if (!isNaN(frameNumber)) {
+      vid.currentTime = frameNumber;
+  }
+
   window.requestAnimationFrame(scrollPlay);
 }
 

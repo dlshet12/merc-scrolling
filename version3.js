@@ -148,7 +148,7 @@ window.addEventListener('scroll', function() {
     const horseRect = horseSection.getBoundingClientRect();
     if (horseRect.top <= 0) {
         // Trigger zoom-out effect once the image reaches the top
-        horseImage.style.transform = 'scale(0.7)';
+        horseImage.style.transform = 'scale(0.9)';
         
         // Fade-up and reveal the text
         horseText.style.opacity = '1';
