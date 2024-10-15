@@ -1,4 +1,4 @@
-var playbackConst = 500, 
+var playbackConst = 800, 
     setHeight = document.getElementById("set-height"), 
     vid0 = document.getElementById('v0'),
     vid1 = document.getElementById('v1');
