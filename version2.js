@@ -23,7 +23,6 @@ function scrollPlay() {
 
   window.requestAnimationFrame(scrollPlay);
 }
-
 window.requestAnimationFrame(scrollPlay);
 
 document.getElementById('navigateBtn').addEventListener('click', function() {
